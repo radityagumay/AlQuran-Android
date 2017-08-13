@@ -6,14 +6,13 @@ import android.alquran.radityalabs.net.alquran.presentation.adapter.SurahAdapter
 import android.alquran.radityalabs.net.alquran.presentation.di.module.SurahModule
 import android.alquran.radityalabs.net.alquran.presentation.extension.RecycleViewExtension
 import android.alquran.radityalabs.net.alquran.presentation.presenter.SurahPresenter
-import android.alquran.radityalabs.net.alquran.presentation.presenter.contract.SurahContract
 import android.os.Bundle
 import kotlinx.android.synthetic.main.fragment_surah.*
 
 /**
  * Created by radityagumay on 8/12/17.
  */
-class SurahFragment : BaseFragment<SurahPresenter>(), SurahContract.View,
+class SurahFragment : BaseFragment<SurahPresenter.View, SurahPresenter>(), SurahPresenter.View,
         RecycleViewExtension {
     companion object {
         val TAG = SurahFragment::class.java.simpleName
@@ -45,7 +44,7 @@ class SurahFragment : BaseFragment<SurahPresenter>(), SurahContract.View,
     }
 
     override fun setupData() {
-        mPresenter.loadSurah()
+        mPresenter.onLoadSurah()
     }
 
     override fun showError(message: String) {

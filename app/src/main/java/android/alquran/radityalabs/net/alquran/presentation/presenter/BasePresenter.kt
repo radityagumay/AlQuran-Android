@@ -1,12 +1,18 @@
 package android.alquran.radityalabs.net.alquran.presentation.presenter
 
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
+import javax.inject.Inject
 
 /**
  * Created by radityagumay on 8/12/17.
  */
-interface BasePresenter<in T : BaseView> {
-    fun attachView(view: T)
+open class BasePresenter<V : BaseView> @Inject constructor() {
+    protected var view: V? = null
 
-    fun detachView()
+    open fun attachView(view: V) {
+        this.view = view
+    }
+
+    open fun detachView() {
+    }
 }

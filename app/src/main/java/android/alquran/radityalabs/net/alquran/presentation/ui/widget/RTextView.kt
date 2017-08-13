@@ -3,47 +3,37 @@ package android.alquran.radityalabs.net.alquran.presentation.ui.widget
 import android.alquran.radityalabs.net.alquran.R
 import android.alquran.radityalabs.net.alquran.presentation.annotation.FontFamily
 import android.alquran.radityalabs.net.alquran.presentation.annotation.FontStyle
-import android.annotation.TargetApi
 import android.content.Context
-import android.os.Build
+import android.graphics.Typeface
+import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
-import android.widget.TextView
 
 /**
  * Created by radityagumay on 8/13/17.
  * https://android.jlelse.eu/building-custom-component-with-kotlin-fc082678b080
  */
-class RTextView : TextView {
-
-    private var attrs: AttributeSet? = null
-    private var fontFamily: Long = FontFamily.ROBOTO
-    private var fontStyle: Long = FontStyle.REGULAR
-
-    @JvmOverloads
-    constructor(
-            context: Context,
-            attrs: AttributeSet? = null,
-            defStyleAttr: Int = 0)
-            : super(context, attrs, defStyleAttr) {
-        this.attrs = attrs
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(
-            context: Context,
-            attrs: AttributeSet?,
-            defStyleAttr: Int,
-            defStyleRes: Int)
-            : super(context, attrs, defStyleAttr, defStyleRes) {
-        this.attrs = attrs
-    }
+class RTextView @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     init {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(it, R.styleable.RTextView, 0, 0)
-            fontFamily = typedArray.getInt(R.styleable.RTextView_fontFamily, FontFamily.ROBOTO.toInt()).toLong()
-            fontStyle = typedArray.getInt(R.styleable.RTextView_fontType, FontStyle.REGULAR.toInt()).toLong()
+            val fontFamily = typedArray.getInt(R.styleable.RTextView_fontFamilyType, FontFamily.ROBOTO.toInt()).toLong()
+            val fontStyle = typedArray.getInt(R.styleable.RTextView_fontStyleType, FontStyle.REGULAR.toInt()).toLong()
+            setupFont(fontFamily.toInt())
             typedArray.recycle()
         }
+    }
+
+    private fun setupFont(fontFamily: Int) {
+        var fontName: String = "fonts/Roboto-Regular.ttf"
+        when (fontFamily.toLong()) {
+            FontFamily.ROBOTO -> {
+                fontName = "fonts/Roboto-Regular.ttf"
+            }
+        }
+        typeface = Typeface.createFromAsset(context.assets, fontName)
     }
 }

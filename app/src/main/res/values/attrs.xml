@@ -2,11 +2,11 @@
 <resources>
     <declare-styleable name="RTextView">
         <attr name="fontFamilyType" format="enum">
-            <enum name="roboto" value="0" />
+            <enum name="roboto" value="1" />
         </attr>
 
         <attr name="fontStyleType" format="enum">
-            <enum name="regular" value="0" />
+            <enum name="regular" value="1" />
         </attr>
     </declare-styleable>
 </resources>

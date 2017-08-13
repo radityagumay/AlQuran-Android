@@ -5,6 +5,7 @@ import android.alquran.radityalabs.net.alquran.presentation.di.component.DaggerF
 import android.alquran.radityalabs.net.alquran.presentation.di.component.FragmentComponent
 import android.alquran.radityalabs.net.alquran.presentation.di.module.FragmentModule
 import android.alquran.radityalabs.net.alquran.presentation.presenter.BasePresenter
+import android.alquran.radityalabs.net.alquran.presentation.rx.RxPresenter
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
 import android.app.Activity
 import android.content.Context
@@ -18,10 +19,10 @@ import javax.inject.Inject
 /**
  * Created by radityagumay on 8/12/17.
  */
-abstract class BaseFragment<T : BasePresenter<*>> : Fragment(), BaseView {
+abstract class BaseFragment<V : BaseView, P : RxPresenter<V>> : Fragment(), BaseView {
 
     @Inject
-    lateinit var mPresenter: T
+    lateinit var mPresenter: P
 
     protected var mView: View? = null
     protected var mActivity: Activity? = null
@@ -44,6 +45,7 @@ abstract class BaseFragment<T : BasePresenter<*>> : Fragment(), BaseView {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mPresenter.attachView(this as V)
         setupView()
         setupData()
     }
@@ -54,6 +56,7 @@ abstract class BaseFragment<T : BasePresenter<*>> : Fragment(), BaseView {
 
     override fun onDestroy() {
         super.onDestroy()
+        mPresenter.detachView()
     }
 
     protected abstract fun setupInjection()

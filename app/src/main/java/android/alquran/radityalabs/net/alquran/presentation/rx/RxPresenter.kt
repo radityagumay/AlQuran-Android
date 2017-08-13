@@ -9,7 +9,7 @@ import io.reactivex.functions.Consumer
 /**
  * Created by radityagumay on 8/12/17.
  */
-open class RxPresenter<T : BaseView> : BasePresenter<T> {
+open class RxPresenter<T : BaseView> : BasePresenter<T>() {
     protected var mView: T? = null
     protected var mCompositeSubscription: CompositeDisposable? = null
 

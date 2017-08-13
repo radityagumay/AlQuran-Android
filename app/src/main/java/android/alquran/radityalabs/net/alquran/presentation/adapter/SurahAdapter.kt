@@ -10,7 +10,10 @@ import android.view.ViewGroup
 /**
  * Created by radityagumay on 8/13/17.
  */
-class SurahAdapter(val listOfSurah: List<SurahData>?) : RecyclerView.Adapter<SurahViewHolder>() {
+class SurahAdapter(listOfSurah: List<SurahData>?) : RecyclerView.Adapter<SurahViewHolder>() {
+    companion object {
+        val TAG = SurahAdapter::class.java.simpleName
+    }
 
     private val list: List<SurahData>? = listOfSurah
 
@@ -34,6 +37,12 @@ class SurahAdapter(val listOfSurah: List<SurahData>?) : RecyclerView.Adapter<Sur
 
     override fun getItemCount() = list?.size ?: 0
 
-    override fun onBindViewHolder(holder: SurahViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: SurahViewHolder, position: Int) {
+        val item = list!![position]
+        with(holder) {
+            number.text = item.number.toString()
+            arabicName.text = item.name
+            englishName.text = item.englishName
+        }
     }
 }

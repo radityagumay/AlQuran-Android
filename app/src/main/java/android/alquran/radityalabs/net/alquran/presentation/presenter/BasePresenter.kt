@@ -4,13 +4,15 @@ import android.alquran.radityalabs.net.alquran.presentation.rx.RxBus
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
+import io.reactivex.SingleTransformer
 import io.reactivex.functions.Consumer
 
 /**
  * Created by radityagumay on 8/12/17.
  */
-open class BasePresenter<T : BaseView> {
-    protected var mView: T? = null
+open class BasePresenter<V : BaseView> {
+    lateinit protected var view: V
+
     protected var mCompositeSubscription: CompositeDisposable? = null
 
     protected fun dispose() {
@@ -33,12 +35,15 @@ open class BasePresenter<T : BaseView> {
         mCompositeSubscription!!.add(RxBus.default.toDefaultObservable(eventType, act))
     }
 
-    open fun attachView(view: T) {
-        this.mView = view
+    open fun attachView(view: V) {
+        this.view = view
     }
 
     open fun detachView() {
-        this.mView = null
         dispose()
+    }
+
+    fun bindLifeCycle(lifeCycle: SingleTransformer<*, *>) {
+        //this.transformations.lifecycle = lifeCycle
     }
 }

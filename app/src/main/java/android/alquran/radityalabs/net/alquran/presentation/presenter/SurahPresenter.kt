@@ -14,10 +14,10 @@ class SurahPresenter @Inject constructor(val usecase: SurahUseCase) :
     fun onLoadSurah() {
         val disposable = usecase.onLoadSurah().subscribe({
             success ->
-            mView?.loadSurahSuccess(success.data)
+            view.loadSurahSuccess(success.data)
         }, {
             error ->
-            mView?.showError(error.message!!)
+            view.showError(error.message!!)
         })
         addDisposable(disposable)
     }

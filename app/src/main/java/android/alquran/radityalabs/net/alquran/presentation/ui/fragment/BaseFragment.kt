@@ -6,8 +6,6 @@ import android.alquran.radityalabs.net.alquran.presentation.di.component.Fragmen
 import android.alquran.radityalabs.net.alquran.presentation.di.module.FragmentModule
 import android.alquran.radityalabs.net.alquran.presentation.presenter.BasePresenter
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

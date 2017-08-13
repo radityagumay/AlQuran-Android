@@ -10,5 +10,12 @@ import io.reactivex.Single
  * Created by radityagumay on 8/13/17.
  */
 class SurahUseCase(val service: RestService, val realmHelper: RealmHelper) : RxExtension {
-    fun onLoadSurah(): Single<SurahResponse> = service.loadSurah().compose(singleNewThread())
+    companion object {
+        val TAG = SurahUseCase::class.java.simpleName
+    }
+
+    fun onLoadSurah(): Single<SurahResponse> =
+            service.loadSurah()
+                    .compose(singleNewThread())
+                    .compose(reportLog(TAG))
 }

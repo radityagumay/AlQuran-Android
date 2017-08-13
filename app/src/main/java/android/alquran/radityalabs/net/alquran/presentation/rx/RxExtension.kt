@@ -1,5 +1,6 @@
 package android.alquran.radityalabs.net.alquran.presentation.rx
 
+import android.util.Log
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -28,6 +29,12 @@ interface RxExtension {
                     .observeOn(AndroidSchedulers.mainThread())
         }
     }
+
+    fun <T> reportLog(tag: String): SingleTransformer<T, T> =
+            SingleTransformer { upstream ->
+                upstream.doOnError { Log.e(tag, it.message) }.onErrorResumeNext { Single.never() }
+                upstream.doAfterSuccess { Log.d(tag, "success") }
+            }
 
     fun <T> rxIo(): FlowableTransformer<T, T> {
         return FlowableTransformer { upstream ->

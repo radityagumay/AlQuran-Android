@@ -21,11 +21,7 @@ import javax.inject.Inject
 abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), BaseView {
 
     @Inject
-    lateinit var mPresenter: P
-
-    protected var mView: View? = null
-    protected var mActivity: Activity? = null
-    protected var mContext: Context? = null
+    lateinit var presenter: P
 
     protected val fragmentComponent: FragmentComponent
         get() = DaggerFragmentComponent.builder()
@@ -35,6 +31,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupInjection()
         setupEvent()
     }
 
@@ -44,9 +41,9 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mPresenter.bindLifeCycle(RxLifecycleAndroid.bindFragment<Any>(lifecycle()))
+        presenter.bindLifeCycle(RxLifecycleAndroid.bindFragment<Any>(lifecycle()))
         setupView()
-        mPresenter.attachView(this as V)
+        presenter.attachView(this as V)
         setupData()
     }
 
@@ -56,7 +53,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
 
     override fun onDestroy() {
         super.onDestroy()
-        mPresenter.detachView()
+        presenter.detachView()
     }
 
     protected abstract fun setupInjection()

@@ -44,7 +44,7 @@ class SurahFragment : BaseFragment<SurahPresenter.View, SurahPresenter>(), Surah
     }
 
     override fun setupData() {
-        mPresenter.onLoadSurah()
+        presenter.onLoadSurah()
     }
 
     override fun showError(message: String) {

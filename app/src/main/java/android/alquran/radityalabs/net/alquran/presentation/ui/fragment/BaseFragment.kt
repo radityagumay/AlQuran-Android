@@ -5,12 +5,10 @@ import android.alquran.radityalabs.net.alquran.presentation.di.component.DaggerF
 import android.alquran.radityalabs.net.alquran.presentation.di.component.FragmentComponent
 import android.alquran.radityalabs.net.alquran.presentation.di.module.FragmentModule
 import android.alquran.radityalabs.net.alquran.presentation.presenter.BasePresenter
-import android.alquran.radityalabs.net.alquran.presentation.rx.RxPresenter
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +17,7 @@ import javax.inject.Inject
 /**
  * Created by radityagumay on 8/12/17.
  */
-abstract class BaseFragment<V : BaseView, P : RxPresenter<V>> : Fragment(), BaseView {
+abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), BaseView {
 
     @Inject
     lateinit var mPresenter: P

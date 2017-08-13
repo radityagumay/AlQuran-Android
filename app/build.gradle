@@ -41,6 +41,7 @@ ext {
     GLIDE_VERSION = "3.7.0"
     DAGGER_VERSION = "2.7"
     MOCKITO_VERSION = '2.7.1'
+    RX_LIFE_CYCLE = "2.0.1"
 }
 
 dependencies {
@@ -107,6 +108,11 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
     implementation "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$OKHTTP_VERSION"
+
+    /* trello */
+    implementation "com.trello.rxlifecycle2:rxlifecycle:$RX_LIFE_CYCLE"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android:$RX_LIFE_CYCLE"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:$RX_LIFE_CYCLE"
 
     /* dagger */
     implementation "com.google.dagger:dagger:$DAGGER_VERSION"

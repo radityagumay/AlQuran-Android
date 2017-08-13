@@ -3,7 +3,6 @@ package android.alquran.radityalabs.net.alquran.presentation.ui.activity
 import android.alquran.radityalabs.net.alquran.R
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -13,21 +12,19 @@ class MainActivity : BaseActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                message.setText(R.string.title_home)
+            R.id.navigation_surah -> {
+                message.setText(R.string.title_surah)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+                message.setText(R.string.title_bookmark)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
+
+    private val fragments = arrayOf(Pair<>)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

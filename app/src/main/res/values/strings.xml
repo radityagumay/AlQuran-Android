@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">AlQuran</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_surah">Surah</string>
+    <string name="title_bookmark">Bookmark</string>
 </resources>

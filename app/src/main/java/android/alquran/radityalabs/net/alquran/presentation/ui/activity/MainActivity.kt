@@ -24,8 +24,6 @@ class MainActivity : BaseActivity() {
         false
     }
 
-    private val fragments = arrayOf(Pair<>)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

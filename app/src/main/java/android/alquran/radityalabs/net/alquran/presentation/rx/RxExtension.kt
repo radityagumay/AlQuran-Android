@@ -1,6 +1,5 @@
 package android.alquran.radityalabs.net.alquran.presentation.rx
 
-import android.content.Context
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

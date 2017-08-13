@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RTextView">
+        <attr name="fontFamilyType" format="enum">
+            <enum name="roboto" value="0" />
+        </attr>
+
+        <attr name="fontStyleType" format="enum">
+            <enum name="regular" value="0" />
+        </attr>
+    </declare-styleable>
+</resources>

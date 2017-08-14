@@ -1,6 +1,7 @@
 package android.alquran.radityalabs.net.alquran.data.database
 
 import android.alquran.radityalabs.net.alquran.BuildConfig
+import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.rx.RealmObservableFactory
 
@@ -30,4 +31,10 @@ class RealmHelper {
                     .build()
         }
     }
+}
+
+inline fun Realm.transaction(body: (Realm) -> Unit) {
+    beginTransaction()
+    body(this)
+    commitTransaction()
 }

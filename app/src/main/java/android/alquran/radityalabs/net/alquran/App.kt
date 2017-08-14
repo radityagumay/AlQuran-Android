@@ -5,6 +5,7 @@ import android.alquran.radityalabs.net.alquran.presentation.di.module.HttpModule
 import android.alquran.radityalabs.net.alquran.presentation.di.module.AppModule
 import android.alquran.radityalabs.net.alquran.presentation.di.component.AppComponent
 import android.alquran.radityalabs.net.alquran.presentation.di.component.DaggerAppComponent
+import io.realm.Realm
 
 /**
  * Created by radityagumay on 8/12/17.
@@ -30,5 +31,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        Realm.init(this)
     }
 }

@@ -44,6 +44,9 @@ data class SurahData(
         @SerializedName("englishName")
         @Expose
         val englishName: String,
+        @SerializedName("numberOfAyahs")
+        @Expose
+        val numberOfAyahs: Int,
         @SerializedName("englishNameTranslation")
         @Expose
         val englishNameTranslation: String,
@@ -55,6 +58,7 @@ data class SurahData(
             source.readInt(),
             source.readString(),
             source.readString(),
+            source.readInt(),
             source.readString(),
             source.readString()
     )
@@ -65,6 +69,7 @@ data class SurahData(
         writeInt(number)
         writeString(name)
         writeString(englishName)
+        writeInt(numberOfAyahs)
         writeString(englishNameTranslation)
         writeString(revelationType)
     }

@@ -7,16 +7,13 @@ import android.alquran.radityalabs.net.alquran.data.network.RestService
 import android.alquran.radityalabs.net.alquran.data.network.response.SurahResponse
 import android.alquran.radityalabs.net.alquran.presentation.rx.RxExtension
 import io.reactivex.Single
-import io.reactivex.SingleSource
-import io.reactivex.SingleTransformer
-import io.reactivex.functions.Consumer
 import io.realm.Realm
 import io.realm.RealmList
 
 /**
  * Created by radityagumay on 8/13/17.
  */
-class SurahUseCase(val service: RestService, val realm: RealmHelper) : RxExtension {
+open class SurahUseCase(val service: RestService, val realm: RealmHelper) : RxExtension {
     companion object {
         val TAG = SurahUseCase::class.java.simpleName
     }

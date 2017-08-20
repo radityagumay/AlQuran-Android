@@ -12,10 +12,10 @@ class SurahAdapter : RecyclerView.Adapter<SurahViewHolder>() {
         val TAG = SurahAdapter::class.java.simpleName
     }
 
-    private var list: List<SurahData> = listOf()
+    private var list: MutableList<SurahData> = mutableListOf()
 
     fun setNotifyDataChanges(newList: List<SurahData>) {
-        list.plus(newList)
+        list.addAll(newList)
         notifyDataSetChanged()
     }
 

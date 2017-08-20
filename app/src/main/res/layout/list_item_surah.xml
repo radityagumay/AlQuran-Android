@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="5dp">
 
@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        app:fontFamilyType="roboto"
         tools:text="1" />
 
     <android.alquran.radityalabs.net.alquran.presentation.ui.widget.RTextView
@@ -22,7 +21,6 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/number"
         android:textSize="22dp"
-        app:fontFamilyType="roboto"
         tools:text="سورة الفاتحة" />
 
     <android.alquran.radityalabs.net.alquran.presentation.ui.widget.RTextView
@@ -32,8 +30,5 @@
         android:layout_below="@+id/arabicName"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/number"
-        app:fontFamilyType="roboto"
         tools:text="Al-Faatiha" />
-
-
 </RelativeLayout>

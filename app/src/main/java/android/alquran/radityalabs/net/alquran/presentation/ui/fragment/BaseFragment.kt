@@ -8,14 +8,11 @@ import android.alquran.radityalabs.net.alquran.presentation.presenter.BasePresen
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid
 import javax.inject.Inject
 
-/**
- * Created by radityagumay on 8/12/17.
- */
+@Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), BaseView {
 
     @Inject
@@ -33,9 +30,8 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
         setupEvent()
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(getLayoutId(), container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?) =
+            inflater?.inflate(getLayoutId(), container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

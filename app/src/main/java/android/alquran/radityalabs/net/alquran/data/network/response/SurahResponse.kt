@@ -5,9 +5,6 @@ import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by radityagumay on 8/13/17.
- */
 data class SurahResponse(
         val baseResponse: BaseResponse,
         @SerializedName("data")

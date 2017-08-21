@@ -1,7 +1,5 @@
 package android.alquran.radityalabs.net.alquran
 
-import android.alquran.radityalabs.net.alquran.data.database.RealmHelper
-import android.alquran.radityalabs.net.alquran.data.network.RestService
 import android.alquran.radityalabs.net.alquran.data.network.response.BaseResponse
 import android.alquran.radityalabs.net.alquran.data.network.response.SurahData
 import android.alquran.radityalabs.net.alquran.data.network.response.SurahResponse

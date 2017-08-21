@@ -24,7 +24,7 @@ class SurahRepository(val service: RestService, val realm: RealmHelper) : RxExte
                         val r = Realm.getInstance(realm.buildRealmConfiguration())
                         r.transaction {
                             val obj = RealmList<SurahObject>()
-                            for (i in 0..response.data.size - 1) {
+                            for (i in 0 until response.data.size) {
                                 val item = SurahObject()
                                 item.id = (i + 1).toLong()
                                 item.name = response.data[i].name

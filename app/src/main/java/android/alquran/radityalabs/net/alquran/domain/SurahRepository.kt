@@ -5,14 +5,16 @@ import android.alquran.radityalabs.net.alquran.data.database.table.SurahObject
 import android.alquran.radityalabs.net.alquran.data.database.transaction
 import android.alquran.radityalabs.net.alquran.data.network.RestService
 import android.alquran.radityalabs.net.alquran.data.network.response.SurahResponse
+import android.alquran.radityalabs.net.alquran.presentation.annotation.TestOpen
 import android.alquran.radityalabs.net.alquran.presentation.rx.RxExtension
 import io.reactivex.Single
 import io.realm.Realm
 import io.realm.RealmList
 
-class SurahUseCase(val service: RestService, val realm: RealmHelper) : RxExtension {
+@TestOpen
+class SurahRepository(val service: RestService, val realm: RealmHelper) : RxExtension {
     companion object {
-        val TAG = SurahUseCase::class.java.simpleName
+        val TAG = SurahRepository::class.java.simpleName
     }
 
     fun onLoadSurah(): Single<SurahResponse> {

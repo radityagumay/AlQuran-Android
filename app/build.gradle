@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'realm-android'
+apply plugin: 'kotlin-allopen'
 
 android {
     compileSdkVersion 26
@@ -26,6 +27,9 @@ android {
     }
     lintOptions {
         abortOnError false
+    }
+    allOpen {
+        annotation("android.alquran.radityalabs.net.alquran.presentation.annotation.TestOpen")
     }
 }
 

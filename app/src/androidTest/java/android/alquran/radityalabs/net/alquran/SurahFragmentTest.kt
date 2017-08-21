@@ -9,9 +9,6 @@ import android.support.test.espresso.Espresso.*
 import android.support.test.espresso.assertion.ViewAssertions.*
 import android.support.test.espresso.matcher.ViewMatchers.*
 
-/**
- * Created by radityagumay on 8/13/17.
- */
 class SurahFragmentTest {
     @get:Rule
     var surahFragmentRule: FragmentTestRule<SurahFragment> = FragmentTestRule(SurahFragment::class.java)

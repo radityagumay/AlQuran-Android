@@ -5,7 +5,7 @@ import android.alquran.radityalabs.net.alquran.domain.SurahUseCase
 import android.alquran.radityalabs.net.alquran.presentation.view.BaseView
 import javax.inject.Inject
 
-class SurahPresenter @Inject constructor(val usecase: SurahUseCase) :
+open class SurahPresenter @Inject constructor(val usecase: SurahUseCase) :
         BasePresenter<SurahPresenter.View>() {
 
     fun onLoadSurah() {

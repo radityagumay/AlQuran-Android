@@ -5,7 +5,6 @@ import android.alquran.radityalabs.net.alquran.data.network.response.SurahData
 import android.alquran.radityalabs.net.alquran.presentation.adapter.SurahAdapter
 import android.alquran.radityalabs.net.alquran.presentation.di.module.SurahModule
 import android.alquran.radityalabs.net.alquran.presentation.presenter.SurahPresenter
-import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
@@ -21,7 +20,6 @@ class SurahFragment : BaseFragment<SurahPresenter.View, SurahPresenter>(), Surah
     private lateinit var surahAdapter: SurahAdapter
 
     override fun onLoadSurahSuccess(listOfSurah: List<SurahData>) {
-        Log.d(TAG, listOfSurah.toString())
         surahAdapter.setNotifyDataChanges(listOfSurah)
     }
 

@@ -42,6 +42,7 @@ ext {
     DAGGER_VERSION = "2.8"
     MOCKITO_VERSION = '2.7.1'
     RX_LIFE_CYCLE = "2.0.1"
+    MOCKERY_VERSION = "1.0.2"
 }
 
 dependencies {
@@ -100,4 +101,10 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-android:2.7.20'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
+
+    testCompile "com.nhaarman:mockito-kotlin:1.3.0"
+
+    compile "com.github.VictorAlbertos.Mockery:extension_rx2_retrofit:$MOCKERY_VERSION"
+    kapt "com.github.VictorAlbertos.Mockery:test_compiler:$MOCKERY_VERSION"
+    provided "com.github.VictorAlbertos.Mockery:test_runtime:$MOCKERY_VERSION"
 }

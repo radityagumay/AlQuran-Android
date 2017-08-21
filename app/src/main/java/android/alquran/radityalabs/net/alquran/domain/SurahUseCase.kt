@@ -10,10 +10,7 @@ import io.reactivex.Single
 import io.realm.Realm
 import io.realm.RealmList
 
-/**
- * Created by radityagumay on 8/13/17.
- */
-open class SurahUseCase(val service: RestService, val realm: RealmHelper) : RxExtension {
+class SurahUseCase(val service: RestService, val realm: RealmHelper) : RxExtension {
     companion object {
         val TAG = SurahUseCase::class.java.simpleName
     }

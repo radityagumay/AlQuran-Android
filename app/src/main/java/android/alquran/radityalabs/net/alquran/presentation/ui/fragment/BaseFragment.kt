@@ -43,10 +43,6 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
 
     override fun onDestroyView() {
         super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
         presenter.detachView()
     }
 

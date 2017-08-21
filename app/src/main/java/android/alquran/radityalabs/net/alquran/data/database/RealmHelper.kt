@@ -5,10 +5,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.rx.RealmObservableFactory
 
-/**
- * Created by radityagumay on 8/12/17.
- */
-class RealmHelper {
+open class RealmHelper {
     companion object {
         private val DATABASE_NAME = "AlQuran.realm"
         private val SCHEMA_VERSION = 1L

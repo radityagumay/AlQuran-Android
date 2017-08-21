@@ -14,9 +14,8 @@ import org.junit.Test
 import com.nhaarman.mockito_kotlin.*
 
 class SurahPresenterTest {
-
     val repository: SurahRepository = mock()
-
+    val view: SurahPresenter.View = mock()
     lateinit var presenter: SurahPresenter
 
     @Before
@@ -29,6 +28,9 @@ class SurahPresenterTest {
         val list = listOf(SurahData(number = 11, name = "سورة هود", englishName = "Hud", numberOfAyahs = 123, englishNameTranslation = "Hud", revelationType = "Meccan"))
         whenever(repository.onLoadSurah())
                 .thenReturn(Single.just(SurahResponse(BaseResponse(200, "success"), list)))
+        presenter.attachView(view)
+        presenter.onLoadSurah()
         verify(repository).onLoadSurah()
+        verify(view).onLoadSurahSuccess(list)
     }
 }

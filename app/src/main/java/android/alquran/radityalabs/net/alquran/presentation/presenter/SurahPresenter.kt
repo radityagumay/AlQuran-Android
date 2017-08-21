@@ -9,11 +9,9 @@ class SurahPresenter @Inject constructor(val repository: SurahRepository) :
         BasePresenter<SurahPresenter.View>() {
 
     fun onLoadSurah() {
-        val disposable = repository.onLoadSurah().subscribe({
-            success ->
+        val disposable = repository.onLoadSurah().subscribe({ success ->
             view.onLoadSurahSuccess(success.data)
-        }, {
-            error ->
+        }, { error ->
             view.showError(error.message!!)
         })
         addDisposable(disposable)
